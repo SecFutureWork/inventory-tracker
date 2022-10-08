@@ -116,6 +116,7 @@ interface HouseTracker {
 class DreesHomes(val browser: Browser): HouseTracker{
     override fun scrape(url: String): List<HouseInfo> {
         val page = browser.newPage()
+        println("==============================${url}==================================")
         page.navigate(url)
         val floorPlans = page.locator("div.home-cards").innerHTML()
         val floorPlansDoc = Jsoup.parseBodyFragment(floorPlans)
@@ -139,7 +140,7 @@ class DreesHomes(val browser: Browser): HouseTracker{
             if(floorPlanDoc.getElementsByClass("neighborhood-feature h_baths").first() != null)
                 halfBaths = floorPlanDoc.getElementsByClass("neighborhood-feature h_baths").first().ownText()
             val garages = floorPlanDoc.getElementsByClass("neighborhood-feature garage").first().ownText()
-//            println("${floorPlanName}, ${priceRange}, ${sqft}, ${stories}, ${bdrs}, ${fullBaths}, ${garages}")
+            println("${floorPlanName}, ${priceRange}, ${sqft}, ${stories}, ${bdrs}, ${fullBaths}, ${garages}")
 
             val house = HouseInfo(floorPlanName)
             house.setBdr(bdrs.ifEmpty { "0" }, "Bedrooms: ")

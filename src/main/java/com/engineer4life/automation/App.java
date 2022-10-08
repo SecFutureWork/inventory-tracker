@@ -12,9 +12,9 @@ public class App
                     .setHeadless(false);
 
             var browser = playwright.firefox().launch(launchOpts);
-            new TaylorMorrisonHouseTracker(browser).scrape("https://www.taylormorrison.com");
-//            new DreesHomes(browser).scrape("https://www.dreeshomes.com/custom-homes/austin/community/clearwater_ranch/clearwater_ranch/");
-//            new DreesHomes(browser).scrape("https://www.dreeshomes.com/custom-homes/austin/community/wolf_ranch/wolf_ranch-60/");
+//            new TaylorMorrisonHouseTracker(browser).scrape("https://www.taylormorrison.com");
+            new DreesHomes(browser).scrape("https://www.dreeshomes.com/custom-homes/austin/community/clearwater_ranch/clearwater_ranch/");
+            new DreesHomes(browser).scrape("https://www.dreeshomes.com/custom-homes/austin/community/wolf_ranch/wolf_ranch-60/");
         }
     }
 }
